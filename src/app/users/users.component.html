@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>User Details</h1>
+  <table class="table table-bordered">
+    <thead>
+      <tr class="success">
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.name}}</td>
+        <td>{{user.age}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr />
+  <h4>
+    <a href="javascript:;" (click)="toggle()">Toggle Content Using *ngIf</a>
+  </h4>
+  <p style="font-size: 25px; color: green;">
+    <ng-container *ngIf="toggleLegend">Sachin is Great!!!</ng-container>
+    <ng-container *ngIf="!toggleLegend">Kohli is Great!</ng-container>
+  </p>
+</div>
