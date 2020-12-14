@@ -4,20 +4,23 @@
 <div #srcKey></div>  -->
 
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" [routerLink]="['/']">Angular POC</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <!-- <li class="active"><a [routerLink]="['/']">Home</a></li> -->
-      <li>
-        <a routerLinkActive="active" [routerLink]="['/', 'users']">Users</a>
-      </li>
-      <li>
-        <a routerLinkActive="active" [routerLink]="['/', 'wells']">Wells</a>
-      </li>
-    </ul>
-  </div>
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" [routerLink]="['/']">Angular POC</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<!-- <li class="active"><a [routerLink]="['/']">Home</a></li> -->
+			<li>
+				<a routerLinkActive="active" [routerLink]="['/', 'users']">Users</a>
+			</li>
+			<li>
+				<a routerLinkActive="active" [routerLink]="['/', 'wells']">Wells</a>
+			</li>
+			<li>
+				<a routerLinkActive="active" [routerLink]="['/', 'drag-drop']">Drag & Drop</a>
+			</li>
+		</ul>
+	</div>
 </nav>
 
 <router-outlet></router-outlet>

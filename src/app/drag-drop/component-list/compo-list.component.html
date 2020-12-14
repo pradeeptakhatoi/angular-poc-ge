@@ -1,0 +1,8 @@
+<div class="right">
+	<h2>Drag Items from the List!!</h2>
+	<ul>
+		<li *ngFor="let item of components;" draggable="true" (dragstart)="itemDragged($event, item)">
+			<span>{{item.label}}</span>
+		</li>
+	</ul>
+</div>

@@ -1,0 +1,28 @@
+<div class="left" (dragover)="ctrlDragOver($event)">
+	<p *ngIf="!component">Drop Item Here</p>
+
+	<div *ngIf="component">
+
+		<div *ngIf="component.name == 'text'">
+			<label>TextBox</label>
+			<input type="text" placeholder="Text" >
+       </div>
+
+			<div *ngIf="component.name == 'date'">
+				<label>Date</label>
+				<input type="date" placeholder="Enter Date" >
+       </div>
+
+				<div *ngIf="component.name == 'time'">
+					<label>Date</label>
+					<input type="time" placeholder="Enter Time" >
+       </div>
+
+					<div *ngIf="component.name == 'button'">
+						<label>Button</label>
+						<button>Button</button>
+					</div>
+
+
+				</div>
+			</div>

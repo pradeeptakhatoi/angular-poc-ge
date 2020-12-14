@@ -1,0 +1,37 @@
+.drag-drop-container {
+  $height: 300px;
+  .left {
+    width: 75%;
+    height: $height;
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 15px;
+  }
+  .right {
+    float: right;
+    width: 25%;
+    height: $height;
+    border: 1px solid #cc0;
+    h2 {
+      font-size: 20px;
+      margin: 5px;
+      clear: both;
+    }
+    ul {
+      list-style: none;
+      display: block;
+      float: left;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      li {
+        display: block;
+        background-color: greenyellow;
+        font-weight: bold;
+        padding: 0;
+        margin: 2px 0;
+        cursor: move;
+      }
+    }
+  }
+}
