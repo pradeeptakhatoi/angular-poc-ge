@@ -1,20 +1,23 @@
 <div class="container">
-  <app-add-well (newWell)="handleNewWell($event)"></app-add-well>
-  <h1>Well List</h1>
-  <table class="table table-bordered">
-    <thead>
-      <tr class="success">
-        <th>Name</th>
-        <th>Type</th>
-        <th>Source</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let well of wells" [ngClass]="{'error': well.type != 'esp'}">
-        <td>{{well.name}}</td>
-        <td>{{well.type}}</td>
-        <td>{{well.source}}</td>
-      </tr>
-    </tbody>
-  </table>
+	<app-add-well [source]="currSource" *ngIf="showAddForm" (newWell)="handleNewWell($event)"
+  (cancelEvt)="handleCancel($event)"></app-add-well>
+	<h1>Well List</h1>
+	<table class="table table-bordered">
+		<thead>
+			<tr class="success">
+				<th>Name</th>
+				<th>Type</th>
+				<th>Source</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let well of wells" [ngClass]="{'error': well.type != 'esp'}">
+				<td>{{well.name}}</td>
+				<td>{{well.type}}</td>
+				<td>
+					<a (click)="toggleAddForm(well.source)" href="javascript:;">{{well.source}}</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </div>

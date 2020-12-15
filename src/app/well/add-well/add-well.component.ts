@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { WellService } from "../../services/well.service";
 import { Well } from "../../models/well";
@@ -9,25 +9,28 @@ import { Well } from "../../models/well";
 })
 export class AddWellComponent implements OnInit {
   @Output() newWell: EventEmitter<Well> = new EventEmitter();
+  @Output() cancelEvt: EventEmitter<boolean> = new EventEmitter();
+  @Input() source: number;
+
   public formSubmitted = false;
-  public sourceInitialVal = 10003;
+  public addWellForm: FormGroup;
 
   constructor(private wellService: WellService, private fb: FormBuilder) {}
-  public addWellForm: FormGroup;
 
   ngOnInit(): void {
     this.addWellForm = this.fb.group({
       name: ["", [Validators.required]],
       type: ["", [Validators.required]],
-      source: [{ value: "", disabled: false }, [Validators.required]]
-    });
-    this.addWellForm.patchValue({
-      source: this.sourceInitialVal
+      source: [this.source, [Validators.required]]
     });
   }
 
   get f() {
     return this.addWellForm.controls;
+  }
+
+  cancel() {
+    this.cancelEvt.emit(true);
   }
 
   onSubmit() {
@@ -41,10 +44,6 @@ export class AddWellComponent implements OnInit {
 
   resetForm() {
     this.addWellForm.reset();
-    this.sourceInitialVal++;
-    this.addWellForm.patchValue({
-      source: this.sourceInitialVal
-    });
     Object.keys(this.addWellForm.controls).forEach(key => {
       this.addWellForm.get(key).markAsPristine;
     });

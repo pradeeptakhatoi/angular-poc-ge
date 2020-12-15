@@ -8,6 +8,8 @@ import { Well } from "../../models/well";
 })
 export class WellListComponent implements OnInit {
   public wells: Well[];
+  public showAddForm = false;
+  public currSource: number;
 
   constructor(private wellService: WellService) {}
 
@@ -22,5 +24,17 @@ export class WellListComponent implements OnInit {
 
   handleNewWell(well: Well) {
     this.wells = [well, ...this.wells];
+    this.currSource = null;
+    this.showAddForm = false;
+  }
+
+  toggleAddForm(source) {
+    this.currSource = source;
+    this.showAddForm = true;
+  }
+
+  handleCancel(status: any) {
+    this.currSource = null;
+    this.showAddForm = false;
   }
 }
